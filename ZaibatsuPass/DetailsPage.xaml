@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="ZaibatsuPass.DetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZaibatsuPass"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+        <TextBlock Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="Center" x:Name="CardTypeTB"  >CARD TYPE</TextBlock>
+        <TextBlock Style="{ThemeResource TitleTextBlockStyle}" HorizontalAlignment="Center"  x:Name="CardSerialTB" >CARD SERIAL</TextBlock>
+        </StackPanel>
+        <TextBlock Style="{ThemeResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" x:Name="CardBalanceTB">$FU.CK</TextBlock>
+
+    </Grid>
+
+</Page>
