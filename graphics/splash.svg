@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="620"
+   height="300"
+   viewBox="0 0 620 300"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="splash.svg"
+   inkscape:export-filename="C:\Users\morga\src\ZaibatsuPass\graphics\export\splash-400.png"
+   inkscape:export-xdpi="360"
+   inkscape:export-ydpi="360">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#808080"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.873833"
+     inkscape:cx="296.77878"
+     inkscape:cy="157.20197"
+     inkscape:document-units="px"
+     inkscape:current-layer="g8083"
+     showgrid="true"
+     units="px"
+     inkscape:snap-center="false"
+     inkscape:snap-object-midpoints="false"
+     objecttolerance="20"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid8068"
+       spacingx="20.000001"
+       spacingy="20.000001" />
+    <sodipodi:guide
+       position="260.00001,200.00001"
+       orientation="0,1"
+       id="guide12601" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-752.36223)">
+    <g
+       id="g8148"
+       transform="matrix(0.89673787,0,0,0.89673787,17.183956,92.223451)"
+       style="stroke:#ffffff">
+      <g
+         id="g8083"
+         transform="matrix(1.4507142,-0.36170366,0.36170366,1.4507142,-374.4069,-398.46101)">
+        <g
+           id="g8087"
+           transform="matrix(0.89266562,0,0,0.89266562,121.50813,133.48048)"
+           style="opacity:0.25">
+          <rect
+             ry="17.047247"
+             rx="17.047247"
+             y="847.29254"
+             x="35.202328"
+             height="153.42522"
+             width="204.56696"
+             id="rect8081"
+             style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:15.43050861;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10.30619717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+             d="m 157.08984,91.40625 c -0.51596,0.02467 -1.03951,0.101539 -1.56445,0.232422 l -15.69922,3.914062 -1.10547,9.052736 -5.61132,45.86523 c 3.62049,-0.30349 7.21924,-0.30764 10.76562,-0.0273 l 18.26562,-39.12109 4.06446,-8.70899 -1.33594,-5.359374 c -0.91618,-3.674601 -4.16752,-6.020361 -7.7793,-5.847656 z m -34.39453,8.417969 -25.017576,6.238281 1.769532,4.16211 18.414064,43.33008 c 1.50928,-0.49233 3.04609,-0.9364 4.60937,-1.32617 1.56525,-0.39026 3.13157,-0.7201 4.69727,-0.99414 l -4.08203,-46.9043 -0.39063,-4.505861 z m -42.150388,10.509761 -32.214844,8.03125 c -0.436965,0.10895 -0.850698,0.25801 -1.248047,0.42969 l 21.16211,15.9336 34.496089,25.96875 c 2.99978,-1.91205 6.17837,-3.59788 9.51758,-5.0293 l -26.488279,-37.86524 -5.224609,-7.46875 z m 91.123048,14.18555 -20.28906,26.94922 c 4.83571,0.94626 9.52688,2.42458 13.99023,4.38672 l 12.01563,-8.40625 -5.7168,-22.92969 z m -125.492189,17.06641 7.47461,29.98437 32.65039,3.9961 c 3.01994,-3.82724 6.467495,-7.3363 10.292969,-10.44141 L 60.191406,148.12891 46.175781,141.58594 Z m 92.087889,14.86133 c -4.82568,0.007 -9.72832,0.59552 -14.625,1.8164 -15.66937,3.90681 -28.367195,13.56162 -36.398436,26.19531 -0.466367,0.77613 -0.629619,1.73284 -0.388672,2.69922 0.232346,0.93189 0.825408,1.7016 1.601563,2.16797 L 99.148438,195.75 c 0.776137,0.46632 1.741932,0.66636 2.777342,0.4082 0.86286,-0.21513 1.63129,-0.80981 2.09766,-1.58593 2.08981,-3.23392 4.62717,-6.13933 7.58789,-8.67383 1.00129,-0.83619 1.50241,-2.20734 1.1582,-3.58789 l -2.66797,-10.69922 c 4.6001,-2.86993 9.70106,-5.05791 15.25782,-6.44336 5.52226,-1.37686 11.08711,-1.849 16.49609,-1.47461 l 2.66797,10.69922 c 0.34421,1.38055 1.43039,2.35677 2.70703,2.625 3.80404,0.84786 7.40807,2.22143 10.77148,4.0957 0.77615,0.46633 1.7348,0.63115 2.59766,0.41602 1.03541,-0.25816 1.79536,-0.88796 2.26172,-1.66407 l 6.42383,-10.69335 c 0.46636,-0.77617 0.63273,-1.73413 0.40039,-2.66602 -0.24095,-0.96638 -0.83714,-1.73289 -1.61328,-2.19922 -8.95285,-5.07681 -19.19211,-7.87565 -29.8086,-7.85937 z"
+             transform="matrix(1.4972156,0.37329777,-0.37329777,1.4972156,24.075764,657.18544)"
+             id="rect8076"
+             inkscape:connector-curvature="0" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:64.75682068px;line-height:125%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Light';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="297.25018"
+           y="894.32837"
+           id="text8072"
+           sodipodi:linespacing="125%"
+           transform="matrix(0.97029573,0.24192189,-0.24192189,0.97029573,0,0)"><tspan
+             sodipodi:role="line"
+             id="tspan8074"
+             x="297.25018"
+             y="894.32837">ZaibatsuPass</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
