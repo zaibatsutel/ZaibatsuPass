@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ZaibatsuPass.TransitCard
 {
     public class TransitEvent
     {
         DateTime eventTime { get; set; }
-        int cost { get; set; }
+        string LocalCost { get; set; }
         
         public string Route { get; set; }
         public string Station { get; set; }
@@ -29,6 +25,7 @@ namespace ZaibatsuPass.TransitCard
         VendingMachine,
         POS,
         Other,
-        Ban
+        Ban,
+        Tram
     }
 }

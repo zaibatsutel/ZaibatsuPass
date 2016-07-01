@@ -25,6 +25,9 @@ namespace ZaibatsuPass
         public DetailsPage()
         {
             this.InitializeComponent();
+
+            
+
         }
 
         TransitCard.TransitCard inspectedCard { get; set; }
