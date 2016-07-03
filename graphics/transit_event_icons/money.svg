@@ -10,13 +10,13 @@
    version="1.1"
    x="0px"
    y="0px"
-   viewBox="0 0 107.5 105"
+   viewBox="0 0 100 100"
    xml:space="preserve"
    id="svg2"
    inkscape:version="0.91 r13725"
    sodipodi:docname="money.svg"
-   width="107.5"
-   height="105"><metadata
+   width="100"
+   height="100"><metadata
      id="metadata36"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -37,16 +37,16 @@
      fit-margin-left="10"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:zoom="1.888"
-     inkscape:cx="38.728814"
-     inkscape:cy="40"
+     inkscape:zoom="5.3400704"
+     inkscape:cx="41.905063"
+     inkscape:cy="72.13975"
      inkscape:current-layer="svg2" /><style
      type="text/css"
      id="style4">
 	.st0{fill:#010202;}
 </style><g
      id="g6"
-     transform="translate(2.5,2.5)"><path
+     transform="matrix(0.84283438,0,0,0.84283438,6.804738,7.858281)"><path
        class="st0"
        d="M 87.5,32.5 87.5,15 C 87.5,10.9 84.1,7.5 80,7.5 l -65,0 c -4.1,0 -7.5,3.4 -7.5,7.5 l 0,70 c 0,4.1 3.4,7.5 7.5,7.5 l 65,0 c 4.1,0 7.5,-3.4 7.5,-7.5 l 0,-17.5 c 4.1,0 7.5,-3.4 7.5,-7.5 l 0,-20 c 0,-4.1 -3.4,-7.5 -7.5,-7.5 z M 80,85 l -65,0 0,-70 65,0 0,17.5 -22.5,0 C 53.4,32.5 50,35.9 50,40 l 0,20 c 0,4.1 3.4,7.5 7.5,7.5 l 22.5,0 0,17.5 z m 7.5,-25 -30,0 0,-20 30,0 0,20 z"
        id="path8"
