@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ZaibatsuPass.TransitCard.ORCA;
 
 namespace ZaibatsuPass.TransitCard
@@ -21,7 +22,7 @@ namespace ZaibatsuPass.TransitCard
         /// <summary>
         /// 
         /// </summary>
-        public abstract TransitEvent[] Events { get; }
+        public abstract List<TransitEvent> Events { get; }
 
         protected PhysicalCard.PhysicalCard mCard = null;
 

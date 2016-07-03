@@ -9,22 +9,26 @@
     <Application.Resources>
         <local:StatusConverter x:Key="ScanStatusToObject" />
         <converter:EventGlyphConverter x:Key="TEventToGlyph" />
-
         <!-- Card styles -->
-        <SolidColorBrush x:Key="CardBackground" Color="{ThemeResource SystemListLowColor}" />
-        <SolidColorBrush x:Key="CardSecondary" Color="{ThemeResource SystemListMediumColor}" />
+        <SolidColorBrush x:Key="CardBackground" Color="{ThemeResource SystemBaseLowColor}" />
+        <SolidColorBrush x:Key="CardSecondary" Color="{ThemeResource SystemBaseMediumColor}" />
         <SolidColorBrush x:Key="CardPrimary" Color="{ThemeResource SystemAccentColor}" />
+
+        <SolidColorBrush x:Key="TransitEventBackground" Color="{ThemeResource SystemAccentColor}" />
+        <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemBaseHighColor}" />
+
 
         <Style x:Key="CardPrimaryText" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="/Assets/nixieone.ttf#Nixie One" />
             <Setter Property="FontSize" Value="60" />
         </Style>
 
-        <Style x:Key="CardSecondaryText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="18" />
+        <Style x:Key="CardSecondaryText" TargetType="TextBlock" BasedOn="{StaticResource CardPrimaryText}">
+            <Setter Property="FontSize" Value="35" />
         </Style>
-        
+
+
 
     </Application.Resources>
-    
+
 </Application>

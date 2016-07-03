@@ -15,27 +15,27 @@ namespace ZaibatsuPass.Converters
                 switch ((TransitCard.TransitEventType)value)
                 {
                     // banned card
-                    case TransitCard.TransitEventType.Ban: return "\xe900;";
+                    case TransitCard.TransitEventType.Ban: return "j";
 
                     // forms of transit
-                    case TransitCard.TransitEventType.Bus: return "\xe901;";
-                    case TransitCard.TransitEventType.Ferry: return "\xe902";
-                    case TransitCard.TransitEventType.Trolley: return "\xe908";
-                    case TransitCard.TransitEventType.Metro: return "\xe903";
-                    case TransitCard.TransitEventType.Train: return "\xe906";
-                    case TransitCard.TransitEventType.TicketMachine: return "\xe905";
-                    case TransitCard.TransitEventType.Tram: return "\xe907";
+                    case TransitCard.TransitEventType.Bus: return "a";
+                    case TransitCard.TransitEventType.Ferry: return "c";
+                    case TransitCard.TransitEventType.Trolley: return "b";
+                    case TransitCard.TransitEventType.Metro: return "d";
+                    case TransitCard.TransitEventType.Train: return "e";
+                    case TransitCard.TransitEventType.Tram: return "f";
+                    case TransitCard.TransitEventType.TicketMachine: return "g";
                     // things that take money
                     case TransitCard.TransitEventType.VendingMachine:
                     case TransitCard.TransitEventType.POS:
-                        return "\xe904";
+                        return "h";
                     // fallback/other
                     case TransitCard.TransitEventType.Other:
                     default:
-                        return "\xe909";
+                        return "i";
                 }
             }
-            else return "\xe909";
+            else return "i";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

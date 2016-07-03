@@ -18,6 +18,7 @@ namespace ZaibatsuPass.PhysicalCard.Desfire.File
 
         public static DesfireFile parse(byte i, DesfireFileSettings s, byte[] d)
         {
+            System.Diagnostics.Debug.WriteLine("ZaibatsuPass: Attempting to parse file {0:X} with settings type {0}", i, s.GetType().ToString());
             if (s is Desfire.File.Settings.ValueSettings)
                 return new ValueFile(i, s as Settings.ValueSettings, d);
             else if (s is RecordSettings)
@@ -53,6 +54,14 @@ namespace ZaibatsuPass.PhysicalCard.Desfire.File
     {
         private DesfireRecord[] files;
 
+        public System.Collections.Generic.List<DesfireRecord> Records
+        {
+            get
+            {
+                return new System.Collections.Generic.List<DesfireRecord>(files);
+            }
+        }
+
         public DesfireRecord this[int idx]
         {
             get {
@@ -61,9 +70,15 @@ namespace ZaibatsuPass.PhysicalCard.Desfire.File
             }
         }
 
+        public RecordFile(byte i, RecordSettings s, DesfireRecord[] records) : base(i,s,new byte[] { })
+        {
+            files = records;
+        }
+
         public RecordFile(byte i, Settings.RecordSettings s, byte[] d) : base(i,s,d)
         {
             files = new DesfireRecord[s.CurRecords];
+            // curRecords -1 because NXP engineers tried to be clever. 
             for(int idx = 0; idx < s.CurRecords; idx++)
             {
                 byte[] tmp = new byte[s.RecordSize];

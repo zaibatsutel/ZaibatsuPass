@@ -362,6 +362,7 @@ namespace Pcsc.Desfire
                 }
                 else if(response.AccessDenied)
                 {
+                    System.Diagnostics.Debug.WriteLine("PCSCSDK: Access denied when reading file {0} SW={1:X}", filenumber, response.SW);
                     return null;
                 }
                 else if (response.Succeeded)

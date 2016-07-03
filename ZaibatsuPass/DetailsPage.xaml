@@ -8,81 +8,123 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <!-- This is the vertical state -->
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TripList.(Grid.Row)" Value="1" />
+                        <Setter Target="TripList.(Grid.Column)" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <!-- This is the horizontal state -->
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rg_LeftCol.Width" Value="Auto" />
+                        <Setter Target="rg_RightCol.Width" Value="*" />
+                        <Setter Target="rg_TopRow.Height" Value="*" />
+                        <Setter Target="rg_BottomRow.Height" Value="Auto" />
+                        <Setter Target="InfoPanel.VerticalAlignment" Value="Center" />
+                        <Setter Target="TripList.(Grid.Row)" Value="0" />
+                        <Setter Target="TripList.(Grid.Column)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
+            <RowDefinition x:Name="rg_TopRow" Height="Auto" />
+            <RowDefinition x:Name="rg_BottomRow" Height="*" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="rg_LeftCol" Width="*" />
+            <ColumnDefinition x:Name="rg_RightCol" Width="Auto" />
+        </Grid.ColumnDefinitions>
+
         <Grid
-            Margin="0,40,0,40"
-            HorizontalAlignment="Stretch"
+            x:Name="InfoPanel"
+            Margin="15"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            MaxWidth="350"
             Padding="10"
             Background="{ThemeResource CardBackground}"
             >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock 
-                Grid.Column="0"
                 Grid.Row="0"
                 HorizontalAlignment="Left"
                 Foreground="{ThemeResource CardSecondary}"
-                Style="{StaticResource CardSecondaryText}"
-                x:Name="CardTypeTB">CARD TYPE</TextBlock>
+                Style="{ThemeResource CardSecondaryText}"
+                x:Name="CardTypeTB"
+                Text="{x:Bind Path=inspectedCard.Name,Mode=OneWay}" />
             <TextBlock 
-                Grid.Row="0"
-                Grid.Column="1"
+                Grid.Row="2"
                 HorizontalAlignment="Right"
                 Foreground="{ThemeResource CardSecondary}"
-                Style="{StaticResource CardSecondaryText}"
-                x:Name="CardSerialTB">CARD SERIAL</TextBlock>
+                Style="{ThemeResource CardSecondaryText}"
+                x:Name="CardSerialTB"
+                Text="{x:Bind Path=inspectedCard.SerialNumber,Mode=OneWay}" />
             <Viewbox
                 Height="100"
                 Stretch="Uniform"
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
                 >
                 <TextBlock
                 Foreground="{ThemeResource CardPrimary}"
-                Style="{StaticResource CardPrimaryText}"
-                x:Name="CardBalanceTB">$29.50</TextBlock>
+                Style="{ThemeResource CardPrimaryText}"
+                x:Name="CardBalanceTB" Text="{x:Bind Path=inspectedCard.Balance,Mode=OneWay}" />
             </Viewbox>
         </Grid>
 
-        <ListView Grid.Row="1">
+        <ListView Grid.Row="1" x:Name="TripList" ItemsSource="{Binding Path=inspectedCard.Events,Mode=OneWay}">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Height="50">
+                <DataTemplate x:DataType="transit:TransitEvent">
+                    <Grid MinHeight="50">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="59*" />
-                            <ColumnDefinition Width="301*" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <FontIcon
-                            Foreground="{ThemeResource SystemAccentColor}"
+                        <Ellipse
+                            Width="42"
+                            Height="42"
+                            Margin="4"
+                            Fill="{ThemeResource TransitEventBackground}"
+                            Grid.Column="0"
+                            Grid.Row="0"
                             Grid.RowSpan="2"
+                            />
+                        <FontIcon
+                            Foreground="{ThemeResource TransitEventForeground}"
+                            Grid.RowSpan="2"
+                            Margin="6"
                             FontFamily="/Assets/zaibatsupass-symbol.ttf#zaibatsupass-symbol"
-                            Glyph="{Binding Converter={StaticResource TEventToGlyph},Path=EventType}" FontSize="50" Width="50" Height="50"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Route" />
-                        <TextBlock Grid.Column="1" Grid.Row="1" Text="Fare" />
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Glyph="{Binding Converter={StaticResource TEventToGlyph},Path=EventType}" FontSize="38"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Bind Path=EventTitle,Mode=OneWay}" />
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Path=EventDetails,Mode=OneWay}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <transit:TransitEvent EventType="Bus" Route="217" />
-            <transit:TransitEvent EventType="TicketMachine" />
-            <transit:TransitEvent EventType="Metro" Route="Sounder" />
         </ListView>
     </Grid>
 

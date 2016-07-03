@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,7 +21,7 @@ namespace ZaibatsuPass
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DetailsPage : Page
+    public sealed partial class DetailsPage : Page,INotifyPropertyChanged 
     {
         public DetailsPage()
         {
@@ -31,6 +32,8 @@ namespace ZaibatsuPass
         }
 
         TransitCard.TransitCard inspectedCard { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -43,6 +46,10 @@ namespace ZaibatsuPass
             CardTypeTB.Text = inspectedCard.Name;
             CardSerialTB.Text = inspectedCard.SerialNumber;
             CardBalanceTB.Text = inspectedCard.Balance;
+
+            TripList.ItemsSource = inspectedCard.Events;
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard"));
 
             base.OnNavigatedTo(e);
         }

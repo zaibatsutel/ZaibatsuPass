@@ -63,9 +63,9 @@ namespace ZaibatsuPass.PhysicalCard.Desfire.File.Settings
         
         public RecordSettings(System.IO.BinaryReader reader) : base(reader)
         {
-            byte[] bRecordSize = reader.ReadBytes(3);
-            byte[] bMaxRecords = reader.ReadBytes(3);
-            byte[] bCurRecords = reader.ReadBytes(3);
+            byte[] bRecordSize = reader.ReadBytes(3).Reverse().ToArray();
+            byte[] bMaxRecords = reader.ReadBytes(3).Reverse().ToArray();
+            byte[] bCurRecords = reader.ReadBytes(3).Reverse().ToArray() ;
             RecordSize = bRecordSize.MakeUint24();
             MaxRecords = bMaxRecords.MakeUint24();
             CurRecords = bCurRecords.MakeUint24();

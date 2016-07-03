@@ -11,7 +11,7 @@ namespace ZaibatsuPass
         public static int MakeUint24(this byte[] me)
         {
             if (me.Length != 3) throw new ArgumentException("Array must be 3 bytes in size.");
-            return (me[0] << 16) + (me[1] << 8) + me[2];
+            return (int)(me.MakeLong(0, 3));
         }
 
         public static int MakeUint24(this byte[] me, int offset, bool little_endian)
@@ -25,7 +25,7 @@ namespace ZaibatsuPass
         public static int MakeUint32(this byte[] me)
         {
             if (me.Length != 4) throw new ArgumentException("Array must be 4 bytes in size.");
-            return (me[0] << 24) + (me[1] << 16) + (me[2] << 8) + me[3];
+            return (int)(me.MakeLong(0, 4));
         }
 
         public static int MakeUint32(this byte[] me, int offset, bool little_endian)

@@ -55,16 +55,43 @@ namespace ZaibatsuPass.PhysicalCard.Desfire
                     System.Diagnostics.Debug.WriteLine("ZaibatsuPass: Get settings for file" + __fileID);
                     byte[] __settings = await handler.GetFileSettingsAsync(__fileID);
                     Desfire.File.Settings.DesfireFileSettings p_settings = Desfire.File.Settings.DesfireFileSettings.Parse(__settings);
-                    System.Diagnostics.Debug.WriteLine("ZaibatsuPass: Get content of file " + __fileID);
-                    byte[] __data = await handler.ReadDataAsync(__fileID);
-                    if (__data != null)
+                    System.Diagnostics.Debug.WriteLine("Got file settings "+ p_settings.GetType().ToString(),"ZaibatsuPass");
+
+                    if (p_settings is File.Settings.RecordSettings)
                     {
-                        Desfire.File.DesfireFile __tFile = Desfire.File.DesfireFile.parse(__fileID, p_settings, __data);
-                        t_files[fileIdx] = __tFile;
+                        // Records are a little different. They're special in the land of DESfire cards and need to be read differently.
+                        // We'll be reading a bunch of records in bulk, actually.
+
+                        File.Settings.RecordSettings recSettings = p_settings as File.Settings.RecordSettings;
+                        DesfireRecord[] records = new DesfireRecord[recSettings.CurRecords];
+                        for (int __fileRecordIdx = 0; __fileRecordIdx < recSettings.CurRecords; __fileRecordIdx++)
+                        {
+                            System.Diagnostics.Debug.WriteLine("Getting {0:X} record {1}", __fileID, __fileRecordIdx);
+                            byte[] tRec = await handler.ReadRecordAsync(__fileID, (ulong)__fileRecordIdx, 1);
+                            if(tRec == null) { break; } // Whoops.
+
+                            records[__fileRecordIdx] = new DesfireRecord(tRec);
+
+                            System.Diagnostics.Debug.WriteLine("Got {0} bytes of data for {1}", tRec.Length, __fileRecordIdx);
+                        }
+                        t_files[fileIdx] = new File.RecordFile(__fileID, recSettings, records);
+
                     }
                     else
                     {
-                        t_files[fileIdx] = new File.InvalidFile(__fileID);
+                        // ... Business as usual ...
+                        System.Diagnostics.Debug.WriteLine("ZaibatsuPass: Get content of file " + __fileID);
+                        byte[] __data = await handler.ReadDataAsync(__fileID);
+                        if (__data != null)
+                        {
+                            Desfire.File.DesfireFile __tFile = Desfire.File.DesfireFile.parse(__fileID, p_settings, __data);
+                            t_files[fileIdx] = __tFile;
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine("ZaibatsuPass: ??? DATA WAS NULL ???");
+                            t_files[fileIdx] = new File.InvalidFile(__fileID);
+                        }
                     }
                     fileIdx++;
                 }
