@@ -13,7 +13,7 @@
             <RowDefinition Height="*" />
             <RowDefinition  Height="*" />
         </Grid.RowDefinitions>
-        <AppBarButton VerticalAlignment="Top" HorizontalAlignment="Right" Icon="Help" Label="About" />
+        <AppBarButton VerticalAlignment="Top" HorizontalAlignment="Right" Icon="Help" Label="About" Click="aboutClick" />
         <ProgressRing Grid.Row="1" Height="40" Width="40" IsActive="{x:Bind Path=CardStatus,Converter={StaticResource ResourceKey=ScanStatusToObject},ConverterParameter='ShowSpinner',Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <TextBlock Grid.Row="0"
                    Style="{ThemeResource HeaderTextBlockStyle}"

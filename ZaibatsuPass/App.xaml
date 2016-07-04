@@ -11,11 +11,11 @@
         <converter:EventGlyphConverter x:Key="TEventToGlyph" />
         <!-- Card styles -->
         <SolidColorBrush x:Key="CardBackground" Color="{ThemeResource SystemBaseLowColor}" />
-        <SolidColorBrush x:Key="CardSecondary" Color="{ThemeResource SystemBaseMediumColor}" />
+        <SolidColorBrush x:Key="CardSecondary" Color="{ThemeResource SystemAccentColor}" Opacity="0.75" />
         <SolidColorBrush x:Key="CardPrimary" Color="{ThemeResource SystemAccentColor}" />
 
         <SolidColorBrush x:Key="TransitEventBackground" Color="{ThemeResource SystemAccentColor}" />
-        <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemBaseHighColor}" />
+        <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemBaseLowColor}" />
 
 
         <Style x:Key="CardPrimaryText" TargetType="TextBlock">
@@ -25,6 +25,7 @@
 
         <Style x:Key="CardSecondaryText" TargetType="TextBlock" BasedOn="{StaticResource CardPrimaryText}">
             <Setter Property="FontSize" Value="35" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
 
 

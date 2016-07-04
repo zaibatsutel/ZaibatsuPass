@@ -29,7 +29,7 @@
                         <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="rg_LeftCol.Width" Value="Auto" />
+                        <Setter Target="rg_LeftCol.Width" Value="*" />
                         <Setter Target="rg_RightCol.Width" Value="*" />
                         <Setter Target="rg_TopRow.Height" Value="*" />
                         <Setter Target="rg_BottomRow.Height" Value="Auto" />
@@ -91,37 +91,59 @@
             </Viewbox>
         </Grid>
 
-        <ListView Grid.Row="1" x:Name="TripList" ItemsSource="{Binding Path=inspectedCard.Events,Mode=OneWay}">
+        <ListView 
+                HorizontalContentAlignment="Stretch"
+                Grid.Row="1"
+                x:Name="TripList"
+                ItemsSource="{x:Bind Path=inspectedCard.Events,Mode=OneWay}">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="transit:TransitEvent">
-                    <Grid MinHeight="50">
+                    <Grid MinHeight="50" Margin="4">
                         <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
+
+                        <!-- Column 0: Icon (and background)-->
                         <Ellipse
-                            Width="42"
-                            Height="42"
-                            Margin="4"
-                            Fill="{ThemeResource TransitEventBackground}"
-                            Grid.Column="0"
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
+                                Width="42"
+                                Height="42"
+                                Margin="4"
+                                VerticalAlignment="Center"
+                                Fill="{ThemeResource TransitEventBackground}"
                             />
                         <FontIcon
                             Foreground="{ThemeResource TransitEventForeground}"
-                            Grid.RowSpan="2"
                             Margin="6"
                             FontFamily="/Assets/zaibatsupass-symbol.ttf#zaibatsupass-symbol"
                             VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
                             Glyph="{Binding Converter={StaticResource TEventToGlyph},Path=EventType}" FontSize="38"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Bind Path=EventTitle,Mode=OneWay}" />
-                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Path=EventDetails,Mode=OneWay}" />
+
+                        <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Top" >
+                            <TextBlock
+                                Style="{ThemeResource TitleTextBlockStyle}"
+                            Text="{x:Bind Path=EventTitle,Mode=OneWay}"
+                            />
+                            <TextBlock 
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                            Text="{x:Bind Path=EventDetailsShort,Mode=OneWay}" 
+                            />
+                        </StackPanel>
+                        <TextBlock 
+                            Grid.Column="2" 
+                            Grid.Row="0" 
+                            Text="{x:Bind Path=LocalCost,Mode=OneWay}" 
+                            HorizontalAlignment="Right" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

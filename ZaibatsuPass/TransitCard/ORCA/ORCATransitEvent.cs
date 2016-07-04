@@ -8,37 +8,74 @@ namespace ZaibatsuPass.TransitCard.ORCA
 {
     class ORCATransitEvent : TransitEvent
     {
-        DateTime _when;
-        long _coach;
-        long _cost;
-        long _newBalance;
+        DateTime mTimestamp;
+        long mCoach;
+        long mEventCost;
+        long mNewBalance;
 
 
-        byte transitType;
-        byte Agency;
+        ORCA.ORCACard.CardActionType mActionType;
+        ORCA.ORCACard.AgencyType mTransitAgency;
 
         public override string EventTitle
         {
             get
             {
-                return string.Format("Auth = {0} Coach = {1}",Agency,_coach);
+                String fAgency = "(unknown) ";
+                if (ORCACard.ORCATransitAgenciesShort.ContainsKey(mTransitAgency))
+                    fAgency = ORCACard.ORCATransitAgenciesShort[mTransitAgency];
+                return string.Format("{0}{1}",fAgency, mCoach);
             }
         }
 
-        public override string EventDetails
+        public override string EventDetailsShort
         {
             get
             {
-                return String.Format(new System.Globalization.CultureInfo("en-US"), "Cost = {0:C} newBalance = {1:C} ", ((float)_cost)/100.0, ((float)_newBalance)/100.0 );
+                if (mActionType == ORCACard.CardActionType.TAP_OUT && this.EventType == TransitEventType.Metro)
+                    return "Exited ST LINK";
+                else if (mActionType == ORCACard.CardActionType.TAP_OUT && this.EventType == TransitEventType.Train)
+                    return "Exited Sounder";
+
+
+                return String.Format(new System.Globalization.CultureInfo("en-US"), "Action: {0}", mActionType.ToString()  );
             }
 
+        }
+
+        public override TransitEventType EventType
+        {
+            get
+            {
+                switch(mTransitAgency)
+                {
+                    case ORCACard.AgencyType.SOUND_TRANSIT:
+                        if (mCoach < 20) return TransitEventType.Train;
+                        if (mCoach > 10000) return TransitEventType.Metro;
+                        else return TransitEventType.Bus;
+                    case ORCACard.AgencyType.WASHINGTON_STATE_FERRIES:
+                        return TransitEventType.Ferry;
+                    case ORCACard.AgencyType.KING_COUNTY_METRO:
+                    case ORCACard.AgencyType.EVERETT_TRANSIT:
+                    case ORCACard.AgencyType.PIERCE_TRANSIT:
+                        return TransitEventType.Bus;
+                    default: return TransitEventType.Other;
+
+                }
+            }
         }
 
         public override string LocalCost
         {
             get
             {
-                return String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", (float)_cost / 100.0);
+                if (mActionType == ORCACard.CardActionType.TAP_OUT && mEventCost < 1)
+                    return "";
+                else if (mActionType == ORCACard.CardActionType.CANCEL_TRIP)
+                    return "N/A";
+                else if (mActionType == ORCACard.CardActionType.USE_PASS)
+                    return "PASS";
+                else return String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", (float)mEventCost / 100.0);
             }
         }
 
@@ -55,23 +92,23 @@ namespace ZaibatsuPass.TransitCard.ORCA
                 | (d[6] << 4)
                 | (d[7] >> 4);
 
-            _event._when = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime;
+            _event.mTimestamp = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime;
 
-            _event._coach = ((d[9] & 0xf) << 12) | (d[10] << 4) | ((d[11] & 0xf0) >> 4);
+            _event.mCoach = ((d[9] & 0xf) << 12) | (d[10] << 4) | ((d[11] & 0xf0) >> 4);
 
             if (d[15] == 0xFF || d[15] == 0x00)
             {
                 // According to FareBot, this is a strange edge-case that has not yet been figured out. 
-                _event._cost = 0;
+                _event.mEventCost = 0;
             }
             else
             {
-                _event._cost = (d[15] << 7) | (d[16] >> 1);
+                _event.mEventCost = (d[15] << 7) | (d[16] >> 1);
             }
 
-            _event._newBalance = (d[34] << 8) | d[35];
-            _event.Agency = (byte)( ( d[3] & 0xF0 ) >> 4);
-            _event.transitType = (byte)(d[17]);
+            _event.mNewBalance = (d[34] << 8) | d[35];
+            _event.mTransitAgency = (ORCA.ORCACard.AgencyType)( (byte)( ( d[3] & 0xF0 ) >> 4));
+            _event.mActionType = (ORCA.ORCACard.CardActionType)((byte)(d[17]));
 
             return _event;
         }

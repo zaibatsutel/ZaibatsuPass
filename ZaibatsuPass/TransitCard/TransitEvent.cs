@@ -5,10 +5,11 @@ namespace ZaibatsuPass.TransitCard
     public class TransitEvent
     {
         DateTime eventTime { get; set; }
-        public virtual string LocalCost { get; set; }
-        public virtual string EventTitle { get; set; }
-        public virtual string EventDetails { get; set; }
-        public virtual TransitEventType EventType { get; set; }
+        public virtual string LocalCost { get; }
+        public virtual string EventTitle { get; }
+        public virtual string EventDetailsShort { get; }
+        public virtual string EventDetailsLong { get; }
+        public virtual TransitEventType EventType { get; }
 
     }
 

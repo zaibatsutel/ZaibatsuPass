@@ -43,13 +43,19 @@ namespace ZaibatsuPass
             if (inspectedCard == null)
                 return;
 
+            /*
             CardTypeTB.Text = inspectedCard.Name;
             CardSerialTB.Text = inspectedCard.SerialNumber;
             CardBalanceTB.Text = inspectedCard.Balance;
 
             TripList.ItemsSource = inspectedCard.Events;
+            */
 
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.Events"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.Name"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.SerialNumber"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.Balance"));
+
 
             base.OnNavigatedTo(e);
         }
