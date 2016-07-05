@@ -32,13 +32,34 @@ namespace ZaibatsuPass.TransitCard.ORCA
         {
             get
             {
-                if (mActionType == ORCACard.CardActionType.TAP_OUT && this.EventType == TransitEventType.Metro)
-                    return "Exited ST LINK";
-                else if (mActionType == ORCACard.CardActionType.TAP_OUT && this.EventType == TransitEventType.Train)
-                    return "Exited Sounder";
-
-
-                return String.Format(new System.Globalization.CultureInfo("en-US"), "Action: {0}", mActionType.ToString()  );
+                string lightrailEvent = "";
+                switch(mActionType)
+                {
+                    /*   Various rail-based systems */
+                    case ORCACard.CardActionType.TAP_IN:
+                        lightrailEvent = "Entered";
+                        goto lightrail;
+                    case ORCACard.CardActionType.TAP_OUT:
+                        lightrailEvent = "Exited";
+                        goto lightrail;
+                    lightrail:
+                        string lightrailAuthority = "Unknown";
+                        if (EventType == TransitEventType.Metro) lightrailAuthority = "ST Link";
+                        if (EventType == TransitEventType.Train) lightrailAuthority = "Sounder";
+                        return lightrailEvent + ": " + lightrailAuthority;
+                    
+                    /* The "TRIP CANCEL" event -- ?? */
+                    case ORCACard.CardActionType.CANCEL_TRIP:
+                        return "Trip cancel event?";
+                    /* Use of E-Purse: Fare was worked against E-purse */
+                    case ORCACard.CardActionType.USE_PURSE:
+                        if (mEventCost > 0)
+                            return "Fare deducted";
+                        else
+                            return "Transfer?";
+                    default:
+                        return String.Format( "Unknown event type {0} (0x{0:X}",mActionType,mActionType );
+                }
             }
 
         }
@@ -69,13 +90,18 @@ namespace ZaibatsuPass.TransitCard.ORCA
         {
             get
             {
-                if (mActionType == ORCACard.CardActionType.TAP_OUT && mEventCost < 1)
-                    return "";
-                else if (mActionType == ORCACard.CardActionType.CANCEL_TRIP)
-                    return "N/A";
-                else if (mActionType == ORCACard.CardActionType.USE_PASS)
-                    return "PASS";
-                else return String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", (float)mEventCost / 100.0);
+
+                switch(mActionType)
+                {
+                    case ORCACard.CardActionType.TAP_OUT:
+                        if (mEventCost < 1) return "";
+                        else goto default;
+                    case ORCACard.CardActionType.USE_PASS:
+                        return "PASS";
+                    default:
+                        return String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", (float)mEventCost / 100.0);
+
+                }
             }
         }
 
@@ -92,7 +118,7 @@ namespace ZaibatsuPass.TransitCard.ORCA
                 | (d[6] << 4)
                 | (d[7] >> 4);
 
-            _event.mTimestamp = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime;
+            _event.mTimestamp = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime.ToLocalTime();
 
             _event.mCoach = ((d[9] & 0xf) << 12) | (d[10] << 4) | ((d[11] & 0xf0) >> 4);
 
@@ -109,6 +135,8 @@ namespace ZaibatsuPass.TransitCard.ORCA
             _event.mNewBalance = (d[34] << 8) | d[35];
             _event.mTransitAgency = (ORCA.ORCACard.AgencyType)( (byte)( ( d[3] & 0xF0 ) >> 4));
             _event.mActionType = (ORCA.ORCACard.CardActionType)((byte)(d[17]));
+
+            System.Diagnostics.Debug.WriteLine("DATA: " + Convert.ToBase64String(d));
 
             return _event;
         }
