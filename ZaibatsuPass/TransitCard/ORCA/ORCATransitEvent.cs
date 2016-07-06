@@ -71,8 +71,8 @@ namespace ZaibatsuPass.TransitCard.ORCA
                 switch(mTransitAgency)
                 {
                     case ORCACard.AgencyType.SOUND_TRANSIT:
-                        if (mCoach < 20) return TransitEventType.Train;
-                        if (mCoach > 10000) return TransitEventType.Metro;
+                        if (isSounder) return TransitEventType.Train;
+                        if (isLink) return TransitEventType.Metro;
                         else return TransitEventType.Bus;
                     case ORCACard.AgencyType.WASHINGTON_STATE_FERRIES:
                         return TransitEventType.Ferry;
@@ -105,6 +105,9 @@ namespace ZaibatsuPass.TransitCard.ORCA
             }
         }
 
+        private Boolean isLink { get { return mTransitAgency == ORCACard.AgencyType.SOUND_TRANSIT && mCoach > 10000; } }
+        private Boolean isSounder {  get { return mTransitAgency == ORCACard.AgencyType.SOUND_TRANSIT && mCoach < 20; } }
+        private Boolean isRapidRide { get { return mTransitAgency == ORCACard.AgencyType.KING_COUNTY_METRO && mCoach > 6000 && mCoach < 7000; } }
 
         public static ORCATransitEvent parseRecrd(PhysicalCard.Desfire.DesfireRecord record)
         {
