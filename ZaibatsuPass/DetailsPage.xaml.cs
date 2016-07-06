@@ -26,9 +26,6 @@ namespace ZaibatsuPass
         public DetailsPage()
         {
             this.InitializeComponent();
-
-            
-
         }
 
         TransitCard.TransitCard inspectedCard { get; set; }
@@ -43,14 +40,25 @@ namespace ZaibatsuPass
             if (inspectedCard == null)
                 return;
 
-            /*
-            CardTypeTB.Text = inspectedCard.Name;
-            CardSerialTB.Text = inspectedCard.SerialNumber;
-            CardBalanceTB.Text = inspectedCard.Balance;
+            // There are certain cards which are "Stub" cards
+            // These cards just don't have any information
+            if(inspectedCard.isStub)
+            {
+                infoPivot.Items.Remove(pi_Balance);
+                infoPivot.Items.Remove(pi_Events);
+                infoPivot.Items.Remove(pi_Extras);
+            }
+            else
+            {
+                infoPivot.Items.Remove(pi_stub);
+                if (!inspectedCard.hasEvents)
+                    infoPivot.Items.Remove(pi_Events);
+                if (!inspectedCard.hasExtras)
+                    infoPivot.Items.Remove(pi_Extras);
+            }
 
-            TripList.ItemsSource = inspectedCard.Events;
-            */
-
+            // As a result of being bound through x:bind, I need this.
+            // Blaaah
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.Events"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.Name"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("inspectedCard.SerialNumber"));
