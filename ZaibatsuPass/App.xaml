@@ -16,8 +16,6 @@
 
         <SolidColorBrush x:Key="TransitEventBackground" Color="{ThemeResource SystemAccentColor}" />
         <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemBaseLowColor}" />
-
-
         <Style x:Key="CardPrimaryText" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="/Assets/nixieone.ttf#Nixie One" />
             <Setter Property="FontSize" Value="60" />

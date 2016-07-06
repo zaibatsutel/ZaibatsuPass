@@ -14,17 +14,23 @@ namespace ZaibatsuPass.TransitCard
         /// <summary>
         /// Serial number on the card
         /// </summary>
-        public abstract String SerialNumber { get; }
+        public virtual String SerialNumber { get { return "Unknown"; } }
         /// <summary>
         /// Balance as formatted in the locale which it comes from
         /// </summary>
-        public abstract String Balance { get; }
+        public virtual String Balance { get { return "Unknown"; } }
         /// <summary>
+        /// The list of transit events.
         /// 
+        /// The default implementation returns an empty list. You should return events that make sense.
         /// </summary>
-        public abstract List<TransitEvent> Events { get; }
+        public virtual List<TransitEvent> Events { get { return new List<TransitEvent>(); } }
 
         protected PhysicalCard.PhysicalCard mCard = null;
+
+        public virtual Boolean isStub { get { return true; } }
+        public virtual Boolean hasEvents { get { return false; } }
+        public virtual Boolean hasExtras { get { return false; } }
 
         /// <summary>
         /// This is to make sure that every TransitCard implementation has a constructor.

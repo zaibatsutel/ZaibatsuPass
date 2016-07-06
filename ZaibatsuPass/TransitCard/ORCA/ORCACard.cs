@@ -8,6 +8,11 @@ namespace ZaibatsuPass.TransitCard.ORCA
         public static byte[] AID_ORCA = { 0x30, 0x10, 0xF2 };
         public static byte[] AID_SPECIAL = { 0xFF, 0xFF, 0xFF };
 
+        // We are not a stub card
+        public override bool isStub { get { return false; } }
+        // we do provide events
+        public override bool hasEvents { get { return true; } }
+
         public enum AgencyType :Byte
         {
             COMMUNITY_TRANSIT = 0x02,
@@ -20,11 +25,27 @@ namespace ZaibatsuPass.TransitCard.ORCA
 
         public enum CardActionType :Byte
         {
+            /// <summary>
+            /// A trip has been canceled (unused?)
+            /// </summary>
             CANCEL_TRIP = 0x01,
+            /// <summary>
+            /// The fare was compared aganst a wallet balance
+            /// </summary>
             USE_PURSE = 0x0C,
-
+            /// <summary>
+            /// Entry into sounder/link happened
+            /// </summary>
             TAP_IN = 0x03,
+            /// <summary>
+            /// Exit from sounder/link happened.
+            /// </summary>
             TAP_OUT = 0x07,
+            /// <summary>
+            /// PASSPort was used
+            /// 
+            /// It is unknown at this time just how many things use this.
+            /// </summary>
             USE_PASS = 0x60,
 
         }
@@ -47,6 +68,11 @@ namespace ZaibatsuPass.TransitCard.ORCA
          { AgencyType.COMMUNITY_TRANSIT, "CT" },
          { AgencyType.WASHINGTON_STATE_FERRIES, "WSF" },
          { AgencyType.EVERETT_TRANSIT, "ET" }
+        };
+
+        public static Dictionary<long, String> LinkStations = new Dictionary<long, string>()
+        {
+            /* ... */
         };
 
         private int balance = 000;
