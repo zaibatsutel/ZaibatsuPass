@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="85mm"
+   height="53.98mm"
+   viewBox="0 0 301.1811 191.26772"
+   id="svg8082"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="card.svg"
+   inkscape:export-filename="C:\Users\morga\src\ZaibatsuPass\graphics\export\card.png"
+   inkscape:export-xdpi="360"
+   inkscape:export-ydpi="360">
+  <defs
+     id="defs8084" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="170.41047"
+     inkscape:cy="73.973649"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     height="53.98mm">
+    <inkscape:grid
+       type="xygrid"
+       id="grid12640" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata8087">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-861.09448)">
+    <path
+       style="opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:32.22200012;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 14.173828 1.2675781 C 6.3218598 1.2675781 0 7.5894381 0 15.441406 L 0 177.09375 C 0 184.94572 6.3218598 191.26758 14.173828 191.26758 L 285.82617 191.26758 C 293.67814 191.26758 300 184.94572 300 177.09375 L 300 15.441406 C 300 7.589438 293.67814 1.2675781 285.82617 1.2675781 L 14.173828 1.2675781 z M 179.13281 23.759766 L 185.89453 66.322266 L 193.42383 113.7207 C 195.03799 113.60594 196.66629 113.54492 198.30859 113.54492 C 199.95294 113.54492 201.58503 113.60566 203.20117 113.7207 L 210.73047 66.322266 L 217.45703 23.970703 A 74.348329 74.348325 0 0 1 239.98438 34.292969 L 226.125 70.451172 L 209.26562 114.42969 C 212.92131 115.02235 216.48148 115.90489 219.91992 117.05664 L 247.63281 82.867188 L 264.37109 62.214844 A 74.348329 74.348325 0 0 1 271.36914 84.033203 L 258.90039 94.138672 L 227.08984 119.92188 C 231.63927 122.05025 235.91312 124.66965 239.84375 127.71094 L 269.30664 116.41797 A 74.348329 74.348325 0 0 1 197.97461 169.98242 A 74.348329 74.348325 0 0 1 126.53125 116.11133 L 156.78125 127.70703 C 160.71192 124.66641 164.98585 122.04772 169.53516 119.91992 L 137.72266 94.132812 L 124.69922 83.576172 A 74.348329 74.348325 0 0 1 131.87891 61.75 L 148.99219 82.865234 L 176.70508 117.05469 C 180.14353 115.90333 183.70372 115.02001 187.35938 114.42773 L 170.5 70.447266 L 156.52344 33.986328 A 74.348329 74.348325 0 0 1 179.13281 23.759766 z M 197.97461 119.80273 C 181.51334 119.80273 166.57637 126.21946 155.51758 136.73438 C 154.86493 137.38702 154.46484 138.2934 154.46484 139.30859 C 154.46484 140.28759 154.86493 141.19506 155.51758 141.84766 L 164.50977 150.83984 C 165.16242 151.49244 166.0685 151.92773 167.15625 151.92773 C 168.06271 151.92773 168.96844 151.5277 169.62109 150.875 C 172.48549 148.1919 175.71232 145.94467 179.26562 144.16797 C 180.46214 143.58787 181.29688 142.3546 181.29688 140.9043 L 181.29688 129.66406 C 186.55433 127.95992 192.13702 127.05469 197.97461 127.05469 C 203.77594 127.05469 209.39685 127.95992 214.6543 129.66406 L 214.6543 140.9043 C 214.6543 142.3546 215.48903 143.58787 216.68555 144.16797 C 220.23887 145.94467 223.46568 148.1919 226.33008 150.875 C 226.98273 151.5277 227.88846 151.92773 228.79492 151.92773 C 229.88267 151.92773 230.78875 151.49244 231.44141 150.83984 L 240.43359 141.84766 C 241.08624 141.19506 241.48633 140.28759 241.48633 139.30859 C 241.48633 138.2934 241.08624 137.38702 240.43359 136.73438 C 229.3748 126.21946 214.43588 119.80273 197.97461 119.80273 z "
+       transform="translate(0,861.09448)"
+       id="rect8081" />
+  </g>
+</svg>
