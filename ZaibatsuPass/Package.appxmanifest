@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="zaibatsutel.passcard" Publisher="CN=ZaibatsuTel" Version="1.0.0.0" />
+  <Identity Name="50910ZaibatsuTel.ZaibatsuPass" Publisher="CN=27610A96-9183-4A2B-9692-09EEFF02348B" Version="1.1.5.0" />
   <mp:PhoneIdentity PhoneProductId="c24bbcdd-a197-41a7-9154-543dbb4d7043" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>ZaibatsuPass</DisplayName>
@@ -28,7 +28,6 @@
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="internetClient" />
     <DeviceCapability Name="proximity" />
   </Capabilities>
 </Package>
