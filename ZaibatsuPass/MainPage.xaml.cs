@@ -207,9 +207,7 @@ namespace ZaibatsuPass
 
         private void aboutClick(object sender, RoutedEventArgs e)
         {
-            Windows.UI.Popups.MessageDialog md = new Windows.UI.Popups.MessageDialog("ZaibatsuPass is a project of the ZaibatsuTel developers.", "About ZaibatsuPass");
-            md.Options = Windows.UI.Popups.MessageDialogOptions.None;
-            var ignored = md.ShowAsync();
+            (Window.Current.Content as Frame).Navigate(typeof(AboutPage));
         }
     }
 }
