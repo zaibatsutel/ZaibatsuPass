@@ -8,7 +8,6 @@ namespace ZaibatsuPass.TransitCard.ORCA
 {
     class ORCATransitEvent : TransitEvent
     {
-        DateTime mTimestamp;
         long mCoach;
         long mEventCost;
         long mNewBalance;
@@ -58,7 +57,7 @@ namespace ZaibatsuPass.TransitCard.ORCA
                         else
                             return "Transfer?";
                     default:
-                        return String.Format( "Unknown event type {0} (0x{0:X}",mActionType,mActionType );
+                        return String.Format( "Unknown event type {0} (0x{0:X})",mActionType );
                 }
             }
 
@@ -121,7 +120,7 @@ namespace ZaibatsuPass.TransitCard.ORCA
                 | (d[6] << 4)
                 | (d[7] >> 4);
 
-            _event.mTimestamp = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime.ToLocalTime();
+            _event.eventTime = DateTimeOffset.FromUnixTimeSeconds(tStamp).DateTime.ToLocalTime();
 
             _event.mCoach = ((d[9] & 0xf) << 12) | (d[10] << 4) | ((d[11] & 0xf0) >> 4);
 

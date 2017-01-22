@@ -30,6 +30,7 @@ namespace ZaibatsuPass.TransitCard
 
         public virtual Boolean isStub { get { return true; } }
         public virtual Boolean hasEvents { get { return false; } }
+        public virtual Boolean hasBalance { get { return false; } }
         public virtual Boolean hasExtras { get { return false; } }
 
         /// <summary>

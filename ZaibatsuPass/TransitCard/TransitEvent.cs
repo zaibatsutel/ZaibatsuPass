@@ -4,7 +4,7 @@ namespace ZaibatsuPass.TransitCard
 {
     public class TransitEvent
     {
-        DateTime eventTime { get; set; }
+        public virtual DateTime eventTime { get; set; }
         public virtual string LocalCost { get; }
         public virtual string EventTitle { get; }
         public virtual string EventDetailsShort { get; }
