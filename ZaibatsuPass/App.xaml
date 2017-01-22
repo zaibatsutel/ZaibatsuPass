@@ -14,19 +14,34 @@
         <SolidColorBrush x:Key="CardSecondary" Color="{ThemeResource SystemAccentColor}" Opacity="0.75" />
         <SolidColorBrush x:Key="CardPrimary" Color="{ThemeResource SystemAccentColor}" />
 
-        <SolidColorBrush x:Key="TransitEventBackground" Color="{ThemeResource SystemAccentColor}" />
-        <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemBaseLowColor}" />
+        <SolidColorBrush x:Key="TransitEventBackground" Color="{ThemeResource SystemListLowColor}" />
+        <SolidColorBrush x:Key="TransitEventForeground" Color="{ThemeResource SystemAccentColorDark2}" />
         <Style x:Key="CardPrimaryText" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="/Assets/nixieone.ttf#Nixie One" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="60" />
         </Style>
 
+
+        <Style x:Key="CardHeaderPrimary" TargetType="TextBlock">
+            <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Foreground" Value="{ThemeResource CardPrimary}" />
+        </Style>
+        <Style x:Key="CardHeaderSecondary" TargetType="TextBlock">
+            <Setter Property="Typography.Capitals" Value="SmallCaps" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Foreground" Value="{ThemeResource CardSecondary}" />
+        </Style>
+        
         <Style x:Key="CardSecondaryText" TargetType="TextBlock" BasedOn="{StaticResource CardPrimaryText}">
             <Setter Property="FontSize" Value="35" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
 
 
+        
 
     </Application.Resources>
 
