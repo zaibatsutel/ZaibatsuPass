@@ -65,8 +65,8 @@ namespace ZaibatsuPass.PhysicalCard.Desfire.File
         public DesfireRecord this[int idx]
         {
             get {
-                if (files.Length < idx) throw new IndexOutOfRangeException();
-                return this.files[idx];
+                if (files.Length < idx) return null;
+                else return this.files[idx];
             }
         }
 
