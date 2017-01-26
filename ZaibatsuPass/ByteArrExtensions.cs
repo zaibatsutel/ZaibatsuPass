@@ -52,13 +52,62 @@ namespace ZaibatsuPass
 
         public static byte[] CopyFrom(this byte[] me, long start, long count)
         {
-            byte[] buff = new byte[start + count];
+            byte[] buff = new byte[count];
 
             for (int idx = 0; idx < count; idx++)
                 buff[idx] = me[start + idx];
 
             return buff;
         }
+
+        public static byte[] CopyReverseFrom(this byte[] me, long start, long length)
+        {
+            byte[] block = new byte[length];
+            long posRight = start + length;
+            for(int i =0; i < length; i++)
+            {
+                block[i] = me[posRight-i-1];
+            }
+            return block;
+        }
+
+        /* Based on function from mfocGUI by 'Huuf' (http://www.huuf.info/OV/)
+         *
+         * This version is turned into an extension method.
+         * It also returns a Long, which is a 64-bit value (as opposed to the 32-bit one
+         * that .NET starts with) -- This means you can fetch 32 bit values easily, but
+         * also get weird 48-bit values just as easy. 
+         * 
+         */
+        public static long getBitsFromBuffer(this byte[] buffer, int iStartBit, int iLength)
+        {
+            // Note: Assumes big-endian
+            int iEndBit = iStartBit + iLength - 1;
+            int iSByte = iStartBit / 8;
+            int iSBit = iStartBit % 8;
+            int iEByte = iEndBit / 8;
+            int iEBit = iEndBit % 8;
+
+            if (iSByte == iEByte)
+            {
+                return ((char)buffer[iEByte] >> (7 - iEBit)) & ((char)0xFF >> (8 - iLength));
+            }
+            else
+            {
+                int uRet = (((char)buffer[iSByte] & (char)((char)0xFF >> iSBit)) << (((iEByte - iSByte - 1) * 8)
+                        + (iEBit + 1)));
+
+                for (int i = iSByte + 1; i < iEByte; i++)
+                {
+                    uRet |= (((char)buffer[i] & (char)0xFF) << (((iEByte - i - 1) * 8) + (iEBit + 1)));
+                }
+
+                uRet |= (((char)buffer[iEByte] & (char)0xFF)) >> (7 - iEBit);
+
+                return uRet;
+            }
+        }
+
     }
 
 }
