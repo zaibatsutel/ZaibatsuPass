@@ -13,7 +13,6 @@
             <RowDefinition Height="*" />
             <RowDefinition  Height="*" />
         </Grid.RowDefinitions>
-        <AppBarButton VerticalAlignment="Top" HorizontalAlignment="Right" Icon="Help" Label="About" Click="aboutClick" />
         <ProgressRing Grid.Row="1" Height="40" Width="40" IsActive="{x:Bind Path=CardStatus,Converter={StaticResource ResourceKey=ScanStatusToObject},ConverterParameter='ShowSpinner',Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <TextBlock Grid.Row="0"
                    Style="{ThemeResource HeaderTextBlockStyle}"
@@ -27,5 +26,14 @@
                    VerticalAlignment="Top"
                    Text="{x:Bind Path=CardStatus,Converter={StaticResource ResourceKey=ScanStatusToObject},ConverterParameter='Subtitle',Mode=OneWay}"
                 />
+        <CommandBar ClosedDisplayMode="Minimal"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    >
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Click="aboutClick" Icon="Help" Label="About ZaibatsuPass" />
+                <AppBarButton Click="nfcSettingsClick" Icon="Setting" Label="NFC Settings" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
     </Grid>
 </Page>

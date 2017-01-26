@@ -47,17 +47,13 @@ namespace ZaibatsuPass
         private async void setupCard()
         {
             var deviceInfo = await SmartCardReaderUtils.GetFirstSmartCardReaderInfo(SmartCardReaderKind.Nfc);
-            if(deviceInfo == null )
-            {
-                System.Diagnostics.Debug.WriteLine("Failed: No readers!");
-                // Bah, device doesn't support NFC. 
-                CardStatus = ScanningStatus.Other;
-                return;
-            }
 
 
-            if(!deviceInfo.IsEnabled)
+            if( deviceInfo == null || (deviceInfo != null &&  !deviceInfo.IsEnabled ) )
             {
+                // the Lumia 950 apparently has a problem where the NFC being off in some builds *disconnects* the device.
+                // since we can hope that the device itself has an NFC reader (thanks to the store) we can, with relative
+                // safety assume that the device is turned off. 
                 System.Diagnostics.Debug.WriteLine("Failed: NFC is off!");
                 CardStatus = ScanningStatus.NFCOff;
                 return;
@@ -208,6 +204,11 @@ namespace ZaibatsuPass
         private void aboutClick(object sender, RoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(AboutPage));
+        }
+
+        private async void nfcSettingsClick(object sender, RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:nfctransactions"));
         }
     }
 }

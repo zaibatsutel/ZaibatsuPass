@@ -43,7 +43,7 @@ namespace ZaibatsuPass
             words.Add("ScanningFailure.Subtitle", "That didn't work. Try again.");
             // NFC is off.
             words.Add("NFCOff.Title", "NFC is off");
-            words.Add("NFCOff.subtitle", "You should go turn that on.");
+            words.Add("NFCOff.Subtitle", "You should go turn that on.");
 
             // Parsing the card
             words.Add("ParsingCard.Title", "Almost there");
@@ -54,8 +54,8 @@ namespace ZaibatsuPass
             words.Add("UnkonwnCard.Subtitle", "I don't speak that card's language.");
 
             // The "Other" state was used.
-            words.Add("Other.Title", "? bad state ?");
-            words.Add("Other.Subtitle", "! Bad state !");
+            words.Add("Other.Title", "Oops...");
+            words.Add("Other.Subtitle", "I can't talk to your NFC reader. Is another app using it?");
 
         }
 
