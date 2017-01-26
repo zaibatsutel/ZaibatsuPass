@@ -22,6 +22,23 @@ namespace ZaibatsuPass
     /// </summary>
     public sealed partial class AboutPage : Page
     {
+
+        public string VersionInfo
+        {
+            get
+            {
+                var ver = Windows.ApplicationModel.Package.Current.Id.Version;
+
+
+                return String.Format("{0} v{1}.{2}.{3}.{4}",
+                    Windows.ApplicationModel.Package.Current.DisplayName,
+                    ver.Major,
+                    ver.Minor,
+                    ver.Build,
+                    ver.Revision);
+            }
+        }
+
         public AboutPage()
         {
             this.InitializeComponent();

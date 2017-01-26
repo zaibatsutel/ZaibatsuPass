@@ -7,6 +7,54 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="0">
+            About ZaibatsuPass
+        </TextBlock>
+        <Pivot Grid.Row="1">
+            <PivotItem Header="About">
+                <ScrollViewer>
+                    <StackPanel VerticalAlignment="Center">
+                        <Image Source="Assets/Square310x310Logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="310" />
+                        <TextBlock TextWrapping="WrapWholeWords">
+            ZaibatsuPass is a part of the ZaibatsuTel project.<LineBreak /><LineBreak />This is free software, licensed under the terms of the MIT license.
+                        </TextBlock>
+                        <TextBlock x:Name="version_label" Text="{x:Bind Path=VersionInfo,Mode=OneTime,FallbackValue='designer.1.2.3'}" />
+                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}">
+                        Links
+                        </TextBlock>
+                        <HyperlinkButton NavigateUri="https://zaibatsutel.net">ZaibatsuTel website</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://zaibatsutel.net/app/pass">ZaibatsuPass website</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/zaibatsutel/zaibatsupass">Source code</HyperlinkButton>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="License">
+                <ScrollViewer>
+                    <StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords" FontFamily="Consolas">
+
+ZaibatsuPass is free software, licensed under the MIT license. 
+<LineBreak />The MIT License (MIT)
+<LineBreak />Copyright (c) 2016 Morgan Gangwere and contributors.
+<LineBreak />Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+<LineBreak />The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<LineBreak />THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<LineBreak />
+                    </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Credits">
+                <TextBlock TextWrapping="WrapWholeWords" VerticalAlignment="Center">
+                    This software wouldn't be complete without the help of many. Noun Project user <Bold>ArtZ91</Bold> designed the icons used for transit events. <Bold>Microsoft</Bold> wrote the PCSCSDK library this application relies on.
+                </TextBlock>
+            </PivotItem>
+        </Pivot>
+        <!--
         <ScrollViewer Margin="10">
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Assets/Wide310x150Logo.png" />
@@ -29,6 +77,6 @@ The MIT License (MIT)
                     This software wouldn't be complete without the help of many. Noun Project user <Bold>ArtZ91</Bold> designed the icons used for transit events. <Bold>Microsoft</Bold> wrote the PCSCSDK library this application relies on.
                 </TextBlock>
             </StackPanel>
-        </ScrollViewer>
+        </ScrollViewer> -->
     </Grid>
 </Page>
