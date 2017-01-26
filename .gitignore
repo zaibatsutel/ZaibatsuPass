@@ -218,3 +218,5 @@ _Pvt_Extensions
 
 ZaibatsuPass/_pkginfo.txt
 ZaibatsuPass/Package.StoreAssociation.xml
+ZaibatsuPass/BundleArtifacts
+*.appx
